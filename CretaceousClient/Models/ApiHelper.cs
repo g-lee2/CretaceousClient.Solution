@@ -5,10 +5,10 @@ namespace CretaceousClient.Models
 {
   public class ApiHelper
   {
-    public static async Task<string> GetAll()
+    public static async Task<string> GetAll(int page, int itemsPerPage)
     {
       RestClient client = new RestClient("http://localhost:5000/");
-      RestRequest request = new RestRequest($"api/animals", Method.Get);
+      RestRequest request = new RestRequest($"api/animals?page=1&itemsPerPage=5", Method.Get);
       RestResponse response = await client.GetAsync(request);
       return response.Content;
     }

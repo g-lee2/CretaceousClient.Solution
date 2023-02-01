@@ -12,9 +12,9 @@ namespace CretaceousClient.Models
     public string Species { get; set; }
     public int Age { get; set; }
 
-    public static List<Animal> GetAnimals()
+    public static List<Animal> GetAnimals(int page, int itemsPerPage)
     {
-      var apiCallTask = ApiHelper.GetAll();
+      var apiCallTask = ApiHelper.GetAll(page, itemsPerPage);
       var result = apiCallTask.Result;
 
       JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);

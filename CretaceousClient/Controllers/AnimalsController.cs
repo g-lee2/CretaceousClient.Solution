@@ -5,9 +5,9 @@ namespace CretaceousClient.Controllers;
 
 public class AnimalsController : Controller
 {
-  public IActionResult Index()
+  public IActionResult Index(int page, int itemsPerPage)
   {
-    List<Animal> animals = Animal.GetAnimals();
+    List<Animal> animals = Animal.GetAnimals(page, itemsPerPage);
     return View(animals);
   }
 
